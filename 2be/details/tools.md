@@ -4,21 +4,21 @@
 
 If you don't already have it: `gem install rails`.
 
-## Download Postgres
+## Download PostgreSQL
 
-Download Postgres from Homebrew.
+Download PostgreSQL from Homebrew.
 
 From your terminal, run:
 
 ```
 brew update
-brew install postgres
-ln -sfv /usr/local/opt/postgresql/*.plist ~/Library/LaunchAgents
-launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+brew install postgresql
+brew services start postgresql
 ```
 [want to know a little more?](http://www.fyquah.me/setup-postgresql-on-os-x)
 
-These last 2 lines will set up a special Daemon init file so that your operating
-system will start postgres automatically whenever you log in.
+Using `brew services start psotgresql` after the installation is supposed to restart PostgreSQL after a reboot. If you find your database is not running, run this command again in a terminal to start the database. To force PostgreSQL to stop, issue a command of `brew services stop postgresql`. You can also run `brew services list` to see which other services are installed and which ones are already running.
 
-**OR: Download the [Postgres app](http://postgresapp.com/).**
+Alternately, you can download and install PostgreSQL from a downloadable application built by PostgreSQL. Using Homebrew makes it much easier to install updates and has handy upgrade commands that reduce the amount of manual maintenance you need to perform. 
+
+**YOU DO NOT want to install through Both Homebrew AND the app. CHOOSE ONE**
